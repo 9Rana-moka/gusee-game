@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+            
+            
+        <h1>guess the secret number</h1>
+        <input type="number" id="myInput" placeholder="write the number (1-10)">
+        <button onclick="checkNumber()">click here</button>
+        <button onclick="newGame()">new game</button>
+        
+        <p id="result"></p>
+        
+        <script>
+            let secret=Math.floor(Math.random() * 10) + 1;
+            
+            function checkNumber() { 
+              let num = document.getElementById("myInput").value;
+              
+             if (num > secret ) {
+               document.getElementById("result").textContent = "too high";
+             }else if (num < secret) {
+               document.getElementById("result").textContent = "too low";
+             }else{
+               document.getElementById("result").textContent = "you win"
+             }
+           }
+            function newGame() {
+                secret = Math.floor(Math.random() * 10) + 1;
+                document.getElementById("result").textContent = "";
+                document.getElementById("myInput").value ="";
+            }
+          </script>
+    </body>
+</html>
